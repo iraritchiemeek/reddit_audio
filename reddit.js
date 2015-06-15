@@ -7,7 +7,7 @@ function Reddit() {
 Reddit.prototype.getObj = function(done) {
 	$.ajax({
       type: "GET",
-      url: "http://www.reddit.com/r/45thworldproblems/top.json?sort=top&t=all&limit=30"
+      url: "http://www.reddit.com/r/glitch_art/top.json?sort=top&t=all&limit=40"
     })
     .done(function(res) {
     	done(res)
@@ -27,7 +27,7 @@ Reddit.prototype.makeArray = function(object) {
 Reddit.prototype.randLinks = function(array) {
 	var self = this
 	for (var i = 0; i < 10; i++) {
-		self.badLinks.push(array[randNum(array)])
+		self.badLinks.push(array[randNum(array.length)])
 	}
 	return (this.cleanseLinks(this.badLinks))
 };
@@ -35,9 +35,9 @@ Reddit.prototype.randLinks = function(array) {
 Reddit.prototype.cleanseLinks = function(links) {
 	var self = this
 	$.each(links, function(index, link){
-		if (link.includes("imgur") && !link.includes(".jpg") && !link.includes(".gif") && !link.includes(".png")){
+		if (!link.includes("/a/") && link.includes("imgur") && !link.includes(".jpg") && !link.includes(".gif") && !link.includes(".png")){
 			self.goodLinks.push(link + ".gif")
-		} else if (link.includes("imgur") && link.includes(".jpg") || link.includes(".gif") || link.includes(".png")) {
+		} else if (!link.includes("/a/") && link.includes("imgur") && (link.includes(".jpg") || link.includes(".gif") || link.includes(".png"))) {
 			self.goodLinks.push(link)
 		}
 	})

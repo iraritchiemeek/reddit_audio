@@ -1,3 +1,3 @@
-function randNum(array) {
-	return Math.floor(Math.random() * array.length)
+function randNum(num) {
+	return Math.floor(Math.random() * num)
 }

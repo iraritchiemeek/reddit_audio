@@ -7,11 +7,13 @@ View.prototype.appendElem = function(type, target, elem) {
 };
 
 View.prototype.appendImg = function(target, id, url) {
-	$("#" + target).append("<img id=img_" + id + " src=" + url + "/>")
+	$("#" + target).append("<img class='reddit_images' id=img_" + id + " src=" + url + "/>")
 };
 
-View.prototype.resizeImg = function() {
-	$.each($(images), function(index, value) {
-		console.log(value)
+View.prototype.positionImg = function() {
+	var height = window.innerHeight
+	var width = window.innerWidth
+	$.each($(".reddit_images"), function(index, image){
+		$(image).css({top: randNum(height /2), left: randNum(width /2)})
 	})
 };

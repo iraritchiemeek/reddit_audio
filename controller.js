@@ -12,7 +12,8 @@ $(window).load(function(){
 		$.each(links, function(index, value){
 			id += 1
 			view.appendImg("imgs", id, value)
-
+			view.positionImg()
 		})
 	})
+
 })
