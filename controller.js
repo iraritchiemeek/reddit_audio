@@ -15,5 +15,8 @@ $(window).load(function(){
 			view.positionImg()
 		})
 	})
+	$(document).on("click", ".reddit_images", function(){
+		view.clickable(this)
+	})
 
 })

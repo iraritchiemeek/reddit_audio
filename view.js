@@ -17,3 +17,9 @@ View.prototype.positionImg = function() {
 		$(image).css({top: randNum(height /2), left: randNum(width /2)})
 	})
 };
+
+View.prototype.clickable = function(image) {
+	console.log('ys')
+	$(".reddit_images").css({zIndex: 0})
+	$(image).css({zIndex: 1})
+};
