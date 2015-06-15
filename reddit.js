@@ -37,6 +37,8 @@ Reddit.prototype.cleanseLinks = function(links) {
 	$.each(links, function(index, link){
 		if (!link.includes("/a/") && link.includes("imgur") && !link.includes(".jpg") && !link.includes(".gif") && !link.includes(".png")){
 			self.goodLinks.push(link + ".gif")
+		} else if (link.includes(".gifv")) {
+			self.goodLinks.push(link.slice(0, -1))
 		} else if (!link.includes("/a/") && link.includes("imgur") && (link.includes(".jpg") || link.includes(".gif") || link.includes(".png"))) {
 			self.goodLinks.push(link)
 		}
