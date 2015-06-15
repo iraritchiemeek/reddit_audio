@@ -13,6 +13,7 @@ $(window).load(function(){
 			id += 1
 			view.appendImg("imgs", id, value)
 			view.positionImg()
+			view.draggable()
 		})
 	})
 	$(document).on("click", ".reddit_images", function(){

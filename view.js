@@ -19,7 +19,10 @@ View.prototype.positionImg = function() {
 };
 
 View.prototype.clickable = function(image) {
-	console.log('ys')
 	$(".reddit_images").css({zIndex: 0})
 	$(image).css({zIndex: 1})
+};
+
+View.prototype.draggable = function() {
+	$(".reddit_images").draggable()
 };
