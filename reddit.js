@@ -1,5 +1,5 @@
 function Reddit() {
-	this.object = []
+	this.array = []
 	this.badLinks = []
 	this.goodLinks = []
 }
@@ -18,22 +18,21 @@ Reddit.prototype.makeArray = function(object) {
 	var self = this
 	$.each(object.data.children, function(index, value){
 		if (value.data.url) {
-			self.object.push(value.data.url)
+			self.array.push(value.data.url)
 		}
 	})
-	return this.object
+	return this.array
 };
 
 Reddit.prototype.randLinks = function(array) {
 	var self = this
-	for (var i = 0; i < 7; i++) {
+	for (var i = 0; i < 10; i++) {
 		self.badLinks.push(array[randNum(array)])
 	}
-	return (this.cleanseLinks(this.badLinks, array))
+	return (this.cleanseLinks(this.badLinks))
 };
 
-Reddit.prototype.cleanseLinks = function(links, array) {
-	console.log(links)
+Reddit.prototype.cleanseLinks = function(links) {
 	var self = this
 	$.each(links, function(index, link){
 		if (link.includes("imgur") && !link.includes(".jpg") && !link.includes(".gif") && !link.includes(".png")){
@@ -42,9 +41,5 @@ Reddit.prototype.cleanseLinks = function(links, array) {
 			self.goodLinks.push(link)
 		}
 	})
-	if (this.goodLinks.length === links.length) {
-		return this.goodLinks
-	} else {
-		this.randLinks(array)
-	}
+	return this.goodLinks
 };
