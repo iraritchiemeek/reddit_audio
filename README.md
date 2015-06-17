@@ -2,4 +2,4 @@
 
 beware of strange subreddit I found
 
-https://cdn.rawgit.com/iraritchiemeek/reddit_audio/development/index.html
+http://cdn.rawgit.com/iraritchiemeek/reddit_audio/development/index.html
