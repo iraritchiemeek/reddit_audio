@@ -7,7 +7,7 @@ function Reddit() {
 Reddit.prototype.getObj = function(done) {
 	$.ajax({
       type: "GET",
-      url: "https://www.reddit.com/r/ooer/top.json?sort=top&t=all&limit=70"
+      url: "https://www.reddit.com/r/aww/top.json?sort=top&t=all&limit=70"
     })
     .done(function(res) {
     	done(res)
